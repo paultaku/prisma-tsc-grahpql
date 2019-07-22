@@ -1,0 +1,6 @@
+type Page {
+  id: ID! @id
+  token: String! @unique
+  published: Boolean! @default(value: false)
+  author: User @relation(link: INLINE)
+}

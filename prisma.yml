@@ -1,0 +1,13 @@
+endpoint: http://localhost:4466
+datamodel: 
+  - ./src/modules/posts/schema.graphql
+  - ./src/modules/users/schema.graphql
+  - ./src/modules/pages/schema.graphql
+generate:
+  - generator: typescript-client
+    output: ./src/generated/prisma-client/
+  - generator: graphql-schema
+    output: ./src/generated/schema.graphql
+hooks:
+  post-deploy:
+    - npx nexus-prisma-generate --client ./src/generated/prisma-client --output ./src/generated/nexus-prisma
