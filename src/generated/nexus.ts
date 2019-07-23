@@ -11,6 +11,61 @@ declare global {
 }
 
 export interface NexusGenInputs {
+  PageCreateInput: { // input type
+    author?: NexusGenInputs['UserCreateOneInput'] | null; // UserCreateOneInput
+    id?: string | null; // ID
+    published?: boolean | null; // Boolean
+    token: string; // String!
+  }
+  PageUpdateInput: { // input type
+    author?: NexusGenInputs['UserUpdateOneInput'] | null; // UserUpdateOneInput
+    published?: boolean | null; // Boolean
+    token?: string | null; // String
+  }
+  PageUpdateManyMutationInput: { // input type
+    published?: boolean | null; // Boolean
+    token?: string | null; // String
+  }
+  PageWhereInput: { // input type
+    AND?: NexusGenInputs['PageWhereInput'][] | null; // [PageWhereInput!]
+    author?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    NOT?: NexusGenInputs['PageWhereInput'][] | null; // [PageWhereInput!]
+    OR?: NexusGenInputs['PageWhereInput'][] | null; // [PageWhereInput!]
+    published?: boolean | null; // Boolean
+    published_not?: boolean | null; // Boolean
+    token?: string | null; // String
+    token_contains?: string | null; // String
+    token_ends_with?: string | null; // String
+    token_gt?: string | null; // String
+    token_gte?: string | null; // String
+    token_in?: string[] | null; // [String!]
+    token_lt?: string | null; // String
+    token_lte?: string | null; // String
+    token_not?: string | null; // String
+    token_not_contains?: string | null; // String
+    token_not_ends_with?: string | null; // String
+    token_not_in?: string[] | null; // [String!]
+    token_not_starts_with?: string | null; // String
+    token_starts_with?: string | null; // String
+  }
+  PageWhereUniqueInput: { // input type
+    id?: string | null; // ID
+    token?: string | null; // String
+  }
   PostCreateManyWithoutAuthorInput: { // input type
     connect?: NexusGenInputs['PostWhereUniqueInput'][] | null; // [PostWhereUniqueInput!]
     create?: NexusGenInputs['PostCreateWithoutAuthorInput'][] | null; // [PostCreateWithoutAuthorInput!]
@@ -132,10 +187,31 @@ export interface NexusGenInputs {
     name: string; // String!
     posts?: NexusGenInputs['PostCreateManyWithoutAuthorInput'] | null; // PostCreateManyWithoutAuthorInput
   }
+  UserCreateOneInput: { // input type
+    connect?: NexusGenInputs['UserWhereUniqueInput'] | null; // UserWhereUniqueInput
+    create?: NexusGenInputs['UserCreateInput'] | null; // UserCreateInput
+  }
+  UserUpdateDataInput: { // input type
+    email?: string | null; // String
+    name?: string | null; // String
+    posts?: NexusGenInputs['PostUpdateManyWithoutAuthorInput'] | null; // PostUpdateManyWithoutAuthorInput
+  }
   UserUpdateInput: { // input type
     email?: string | null; // String
     name?: string | null; // String
     posts?: NexusGenInputs['PostUpdateManyWithoutAuthorInput'] | null; // PostUpdateManyWithoutAuthorInput
+  }
+  UserUpdateOneInput: { // input type
+    connect?: NexusGenInputs['UserWhereUniqueInput'] | null; // UserWhereUniqueInput
+    create?: NexusGenInputs['UserCreateInput'] | null; // UserCreateInput
+    delete?: boolean | null; // Boolean
+    disconnect?: boolean | null; // Boolean
+    update?: NexusGenInputs['UserUpdateDataInput'] | null; // UserUpdateDataInput
+    upsert?: NexusGenInputs['UserUpsertNestedInput'] | null; // UserUpsertNestedInput
+  }
+  UserUpsertNestedInput: { // input type
+    create: NexusGenInputs['UserCreateInput']; // UserCreateInput!
+    update: NexusGenInputs['UserUpdateDataInput']; // UserUpdateDataInput!
   }
   UserWhereInput: { // input type
     AND?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]
@@ -206,6 +282,11 @@ export interface NexusGenRootTypes {
     count: any; // Long!
   }
   Mutation: {};
+  Page: { // root type
+    id: string; // ID!
+    published: boolean; // Boolean!
+    token: string; // String!
+  }
   PageInfo: { // root type
     endCursor?: string | null; // String
     hasNextPage: boolean; // Boolean!
@@ -240,6 +321,11 @@ export interface NexusGenRootTypes {
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
+  PageCreateInput: NexusGenInputs['PageCreateInput'];
+  PageUpdateInput: NexusGenInputs['PageUpdateInput'];
+  PageUpdateManyMutationInput: NexusGenInputs['PageUpdateManyMutationInput'];
+  PageWhereInput: NexusGenInputs['PageWhereInput'];
+  PageWhereUniqueInput: NexusGenInputs['PageWhereUniqueInput'];
   PostCreateManyWithoutAuthorInput: NexusGenInputs['PostCreateManyWithoutAuthorInput'];
   PostCreateWithoutAuthorInput: NexusGenInputs['PostCreateWithoutAuthorInput'];
   PostScalarWhereInput: NexusGenInputs['PostScalarWhereInput'];
@@ -252,7 +338,11 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   PostWhereInput: NexusGenInputs['PostWhereInput'];
   PostWhereUniqueInput: NexusGenInputs['PostWhereUniqueInput'];
   UserCreateInput: NexusGenInputs['UserCreateInput'];
+  UserCreateOneInput: NexusGenInputs['UserCreateOneInput'];
+  UserUpdateDataInput: NexusGenInputs['UserUpdateDataInput'];
   UserUpdateInput: NexusGenInputs['UserUpdateInput'];
+  UserUpdateOneInput: NexusGenInputs['UserUpdateOneInput'];
+  UserUpsertNestedInput: NexusGenInputs['UserUpsertNestedInput'];
   UserWhereInput: NexusGenInputs['UserWhereInput'];
   UserWhereUniqueInput: NexusGenInputs['UserWhereUniqueInput'];
   PostOrderByInput: NexusGenEnums['PostOrderByInput'];
@@ -268,13 +358,25 @@ export interface NexusGenFieldTypes {
   }
   Mutation: { // field return type
     createDraft: NexusGenRootTypes['Post']; // Post!
+    createPage: NexusGenRootTypes['Page']; // Page!
     createUser: NexusGenRootTypes['User']; // User!
+    deleteManyPages: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     deleteManyUsers: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    deletePage: NexusGenRootTypes['Page'] | null; // Page
     deletePost: NexusGenRootTypes['Post'] | null; // Post
     deleteUser: NexusGenRootTypes['User'] | null; // User
     publish: NexusGenRootTypes['Post'] | null; // Post
+    updateManyPages: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updatePage: NexusGenRootTypes['Page'] | null; // Page
     updateUser: NexusGenRootTypes['User'] | null; // User
+    upsertPage: NexusGenRootTypes['Page']; // Page!
     upsertUser: NexusGenRootTypes['User']; // User!
+  }
+  Page: { // field return type
+    author: NexusGenRootTypes['User'] | null; // User
+    id: string; // ID!
+    published: boolean; // Boolean!
+    token: string; // String!
   }
   PageInfo: { // field return type
     endCursor: string | null; // String
@@ -290,6 +392,7 @@ export interface NexusGenFieldTypes {
   }
   Query: { // field return type
     feed: NexusGenRootTypes['Post'][]; // [Post!]!
+    page: NexusGenRootTypes['Page'] | null; // Page
     post: NexusGenRootTypes['Post'] | null; // Post
     postsByUser: NexusGenRootTypes['Post'][]; // [Post!]!
     user: NexusGenRootTypes['User'] | null; // User
@@ -319,11 +422,20 @@ export interface NexusGenArgTypes {
       authorId?: string | null; // ID
       title?: string | null; // String
     }
+    createPage: { // args
+      data: NexusGenInputs['PageCreateInput']; // PageCreateInput!
+    }
     createUser: { // args
       data: NexusGenInputs['UserCreateInput']; // UserCreateInput!
     }
+    deleteManyPages: { // args
+      where?: NexusGenInputs['PageWhereInput'] | null; // PageWhereInput
+    }
     deleteManyUsers: { // args
       where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
+    }
+    deletePage: { // args
+      where: NexusGenInputs['PageWhereUniqueInput']; // PageWhereUniqueInput!
     }
     deletePost: { // args
       where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
@@ -334,9 +446,22 @@ export interface NexusGenArgTypes {
     publish: { // args
       id?: string | null; // ID
     }
+    updateManyPages: { // args
+      data: NexusGenInputs['PageUpdateManyMutationInput']; // PageUpdateManyMutationInput!
+      where?: NexusGenInputs['PageWhereInput'] | null; // PageWhereInput
+    }
+    updatePage: { // args
+      data: NexusGenInputs['PageUpdateInput']; // PageUpdateInput!
+      where: NexusGenInputs['PageWhereUniqueInput']; // PageWhereUniqueInput!
+    }
     updateUser: { // args
       data: NexusGenInputs['UserUpdateInput']; // UserUpdateInput!
       where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
+    }
+    upsertPage: { // args
+      create: NexusGenInputs['PageCreateInput']; // PageCreateInput!
+      update: NexusGenInputs['PageUpdateInput']; // PageUpdateInput!
+      where: NexusGenInputs['PageWhereUniqueInput']; // PageWhereUniqueInput!
     }
     upsertUser: { // args
       create: NexusGenInputs['UserCreateInput']; // UserCreateInput!
@@ -345,6 +470,9 @@ export interface NexusGenArgTypes {
     }
   }
   Query: {
+    page: { // args
+      where: NexusGenInputs['PageWhereUniqueInput']; // PageWhereUniqueInput!
+    }
     post: { // args
       where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
     }
@@ -391,9 +519,9 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AggregateUser" | "BatchPayload" | "Mutation" | "PageInfo" | "Post" | "Query" | "User" | "UserConnection" | "UserEdge";
+export type NexusGenObjectNames = "AggregateUser" | "BatchPayload" | "Mutation" | "Page" | "PageInfo" | "Post" | "Query" | "User" | "UserConnection" | "UserEdge";
 
-export type NexusGenInputNames = "PostCreateManyWithoutAuthorInput" | "PostCreateWithoutAuthorInput" | "PostScalarWhereInput" | "PostUpdateManyDataInput" | "PostUpdateManyWithWhereNestedInput" | "PostUpdateManyWithoutAuthorInput" | "PostUpdateWithWhereUniqueWithoutAuthorInput" | "PostUpdateWithoutAuthorDataInput" | "PostUpsertWithWhereUniqueWithoutAuthorInput" | "PostWhereInput" | "PostWhereUniqueInput" | "UserCreateInput" | "UserUpdateInput" | "UserWhereInput" | "UserWhereUniqueInput";
+export type NexusGenInputNames = "PageCreateInput" | "PageUpdateInput" | "PageUpdateManyMutationInput" | "PageWhereInput" | "PageWhereUniqueInput" | "PostCreateManyWithoutAuthorInput" | "PostCreateWithoutAuthorInput" | "PostScalarWhereInput" | "PostUpdateManyDataInput" | "PostUpdateManyWithWhereNestedInput" | "PostUpdateManyWithoutAuthorInput" | "PostUpdateWithWhereUniqueWithoutAuthorInput" | "PostUpdateWithoutAuthorDataInput" | "PostUpsertWithWhereUniqueWithoutAuthorInput" | "PostWhereInput" | "PostWhereUniqueInput" | "UserCreateInput" | "UserCreateOneInput" | "UserUpdateDataInput" | "UserUpdateInput" | "UserUpdateOneInput" | "UserUpsertNestedInput" | "UserWhereInput" | "UserWhereUniqueInput";
 
 export type NexusGenEnumNames = "PostOrderByInput" | "UserOrderByInput";
 

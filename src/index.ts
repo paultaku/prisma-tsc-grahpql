@@ -6,14 +6,15 @@ import { GraphQLServer } from "graphql-yoga";
 import { postsQuery, postsMutation } from "./modules/posts";
 import { usersQuery, usersMutation } from './modules/users';
 import { PrismaObjectDefinitionBlock } from "nexus-prisma/dist/blocks/objectType";
+import { pagesQuery, pagesMutation } from './modules/pages';
 
-// const Query = [postsQuery, usersQuery];
 const Query = prismaObjectType<"Query">({
     name: "Query",
 
     definition(t: PrismaObjectDefinitionBlock<"Query">) {
         postsQuery(t);
         usersQuery(t);
+        pagesQuery(t);
     }
 });
 const Mutation = prismaObjectType<"Mutation">({
@@ -22,6 +23,7 @@ const Mutation = prismaObjectType<"Mutation">({
     definition(t: PrismaObjectDefinitionBlock<"Mutation">) {
         postsMutation(t);
         usersMutation(t);
+        pagesMutation(t);
     }
 });
 
