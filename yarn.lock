@@ -784,9 +784,9 @@ growly@^1.3.0:
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
 hosted-git-info@^2.1.4:
-  version "2.7.1"
-  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.7.1.tgz#97f236977bd6e125408930ff6de3eec6281ec047"
-  integrity sha512-7T/BxH19zbcCTa8XkMlbK5lTo1WtgkFi3GvdWEyNuc4Vex7/9Dqbnpsf4JMydcfj9HCg4zUWFTL3Za6lapg5/w==
+  version "2.8.9"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
+  integrity sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==
 
 http-errors@1.7.2:
   version "1.7.2"
@@ -1306,6 +1306,11 @@ prisma-generate-schema@1.34.2:
     pluralize "^7.0.0"
     popsicle "10"
     prisma-datamodel "1.34.2"
+
+prisma@^1.34.2:
+  version "1.34.12"
+  resolved "https://registry.yarnpkg.com/prisma/-/prisma-1.34.12.tgz#6212571134f4ead659294b778d85a3f24f9d2669"
+  integrity sha512-Es1cBDqP97eBkbt6yGLg9AInXHIlo2IR7bPYSNQxp9joFBHG6Wuzc0nt6Snb73gcO0bTG5PHJaSijDaZv7/Jpw==
 
 process-nextick-args@~2.0.0:
   version "2.0.1"
