@@ -1165,9 +1165,9 @@ object-assign@^4, object-assign@^4.0.1:
   integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
 
 object-path@^0.11.4:
-  version "0.11.4"
-  resolved "https://registry.yarnpkg.com/object-path/-/object-path-0.11.4.tgz#370ae752fbf37de3ea70a861c23bba8915691949"
-  integrity sha1-NwrnUvvzfePqcKhhwju6iRVpGUk=
+  version "0.11.7"
+  resolved "https://registry.yarnpkg.com/object-path/-/object-path-0.11.7.tgz#5f211161f34bb395e4b13a5f565b79d933b6f65d"
+  integrity sha512-T4evaK9VfGGQskXBDILcn6F90ZD+WO3OwRFFQ2rmZdUH4vQeDBpiolTpVlPY2yj5xSepyILTjDyM6UvbbdHMZw==
 
 on-finished@~2.3.0:
   version "2.3.0"
@@ -1306,6 +1306,11 @@ prisma-generate-schema@1.34.2:
     pluralize "^7.0.0"
     popsicle "10"
     prisma-datamodel "1.34.2"
+
+prisma@^1.34.2:
+  version "1.34.12"
+  resolved "https://registry.yarnpkg.com/prisma/-/prisma-1.34.12.tgz#6212571134f4ead659294b778d85a3f24f9d2669"
+  integrity sha512-Es1cBDqP97eBkbt6yGLg9AInXHIlo2IR7bPYSNQxp9joFBHG6Wuzc0nt6Snb73gcO0bTG5PHJaSijDaZv7/Jpw==
 
 process-nextick-args@~2.0.0:
   version "2.0.1"
